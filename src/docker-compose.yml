@@ -1,6 +1,9 @@
 version: '3.4'
 
 services:
+  rabbitmq:
+   image: rabbitmq:3-management-alpine
+
   trafficlightcentralsystem:
     image: ${DOCKER_REGISTRY-}trafficlightcentralsystem
     build:

@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WestTrafficLight", "service
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2EEE3678-EFC0-4838-8036-CACD37F3BDEF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{7AEAE123-9C38-4EE0-A1EB-18B967B8C061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj", "{2DFACB3B-3C1C-42BB-8003-1F21A64A662D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{2EEE3678-EFC0-4838-8036-CACD37F3BDEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EEE3678-EFC0-4838-8036-CACD37F3BDEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EEE3678-EFC0-4838-8036-CACD37F3BDEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DFACB3B-3C1C-42BB-8003-1F21A64A662D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFACB3B-3C1C-42BB-8003-1F21A64A662D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFACB3B-3C1C-42BB-8003-1F21A64A662D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFACB3B-3C1C-42BB-8003-1F21A64A662D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{37F65F5E-C46F-4565-BE26-F7ECE7B5485F} = {5EB9C418-143F-40EF-A171-35181964757F}
 		{C1A61353-B826-42EB-B04E-951FF8B9C399} = {6B8D393C-35F5-4C88-B914-958B5965BC24}
 		{21699FD6-6AF6-4221-ADB0-5C2DDD5DB4BE} = {E9F04418-37DC-41C8-80E8-CDB09B2A6E98}
+		{2DFACB3B-3C1C-42BB-8003-1F21A64A662D} = {7AEAE123-9C38-4EE0-A1EB-18B967B8C061}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA39F4BD-D8B7-49BD-9B54-ADD3C933B14A}

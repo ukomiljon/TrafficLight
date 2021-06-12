@@ -1,27 +1,46 @@
 version: '3.4'
 
 services:
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+        - "5672:5672"
+        - "15672:15672"
+
   trafficlightcentralsystem:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:      
+      - rabbitmq
     ports:
       - "8000:80"
 
   easttrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:       
+      - rabbitmq
     ports:
       - "8001:80"
 
   westtrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:       
+      - rabbitmq
     ports:
       - "8002:80"
 
   northtrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:       
+      - rabbitmq
     ports:
       - "8003:80"
 
@@ -29,6 +48,9 @@ services:
   southtrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+    depends_on:       
+      - rabbitmq
     ports:
       - "8004:80"
 
