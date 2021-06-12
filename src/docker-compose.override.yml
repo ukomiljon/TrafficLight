@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  trafficlightcentralsystem:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8000:80"
+
+  easttrafficlight:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8001:80"
+
+  westtrafficlight:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8002:80"
+
+  northtrafficlight:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8003:80"
+
+
+  southtrafficlight:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8004:80"
+
+
+
+

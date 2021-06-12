@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  trafficlightcentralsystem:
+    image: ${DOCKER_REGISTRY-}trafficlightcentralsystem
+    build:
+      context: .
+      dockerfile: services/CentralSystem/TrafficLightCentralSystem/Dockerfile
+
+  easttrafficlight:
+    image: ${DOCKER_REGISTRY-}easttrafficlight
+    build:
+      context: .
+      dockerfile: services/EastTrafficLight/EastTrafficLight/Dockerfile
+
+
+  northtrafficlight:
+    image: ${DOCKER_REGISTRY-}northtrafficlight
+    build:
+      context: .
+      dockerfile: services/NorthTrafficLight/NorthTrafficLight/Dockerfile
+
+
+  southtrafficlight:
+    image: ${DOCKER_REGISTRY-}southtrafficlight
+    build:
+      context: .
+      dockerfile: services/SouthTrafficLight/SouthTrafficLight/Dockerfile
+
+
+  westtrafficlight:
+    image: ${DOCKER_REGISTRY-}westtrafficlight
+    build:
+      context: .
+      dockerfile: services/WestTrafficLight/WestTrafficLight/Dockerfile
+
