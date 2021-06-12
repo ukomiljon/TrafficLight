@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TrafficLightCentralSystem.Model.DTO;
 using TrafficLightCentralSystem.Repositories;
+using TrafficLightCentralSystem.Usecases;
 
 namespace TrafficLightCentralSystem.Controllers
 {
@@ -21,7 +22,11 @@ namespace TrafficLightCentralSystem.Controllers
         private readonly IMapper _mapper;
         private readonly IPublishEndpoint _publishEndpoint;
 
-        public CentralSystemController(ILogger<CentralSystemController> logger, IEventRepository eventRepository, IMapper mapper, IPublishEndpoint publishEndpoint)
+        public CentralSystemController(
+            ILogger<CentralSystemController> logger,
+            IEventRepository eventRepository,
+            IMapper mapper,
+            IPublishEndpoint publishEndpoint)
         {
             _logger = logger;
             _eventRepository = eventRepository;
@@ -32,7 +37,7 @@ namespace TrafficLightCentralSystem.Controllers
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]       
-        public async Task<ActionResult> Post(IEnumerable<TrafficLighBoundRequest> command)
+        public async Task<ActionResult> Post(IEnumerable<TrafficLighBoundRequest> initSetting)
         {
            
             return Ok();
@@ -43,6 +48,26 @@ namespace TrafficLightCentralSystem.Controllers
         [ProducesResponseType(StatusCodes.Status304NotModified)]
         public async Task<ActionResult> Post(CommandRequest command)
         {
+            var signalManager = new SignalManager(command, _publishEndpoint);
+            switch (command.Command)
+            {
+                case ProccessCommand.Run:
+                    // record command in repository
+                    signalManager.Run();
+                    break;
+                case ProccessCommand.Stop:
+                    // record command in repository
+                    signalManager.Stop();
+                    break;
+                case ProccessCommand.Reset:
+                    // record command in repository
+                    signalManager.Reset();
+                    break;
+                default:
+                    // record command in repository
+                    _logger.LogError($"There is no {command.Command}");
+                    break;
+            }
 
             return Ok();
         }

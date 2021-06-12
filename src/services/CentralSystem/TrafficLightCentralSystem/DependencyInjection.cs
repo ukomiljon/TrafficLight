@@ -9,6 +9,7 @@ using TrafficLightCentralSystem.Repositories;
 using TrafficLightCentralSystem.Settings;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
+using TrafficLightCentralSystem.Usecases;
 
 namespace TrafficLightCentralSystem
 {
@@ -24,7 +25,7 @@ namespace TrafficLightCentralSystem
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddSingleton<IEventRepository>(new InMemoryEventRepository());
+            services.AddSingleton<IEventRepository>(new InMemoryEventRepository());           
 
             services.AddMassTransit(config =>
             {
