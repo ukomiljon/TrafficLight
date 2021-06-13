@@ -11,7 +11,7 @@ services:
   trafficlightcentralsystem:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:      
       - rabbitmq
     ports:
@@ -20,7 +20,7 @@ services:
   easttrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:       
       - rabbitmq
     ports:
@@ -29,7 +29,7 @@ services:
   westtrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:       
       - rabbitmq
     ports:
@@ -38,7 +38,7 @@ services:
   northtrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:       
       - rabbitmq
     ports:
@@ -48,7 +48,7 @@ services:
   southtrafficlight:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
+      - "EventBusSettings__HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:       
       - rabbitmq
     ports:

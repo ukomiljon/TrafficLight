@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EventBus.Messages;
 using MassTransit;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,7 @@ namespace TrafficLightCentralSystem.Controllers
         [ProducesResponseType(StatusCodes.Status304NotModified)]
         public async Task<ActionResult> Post(CommandRequest command)
         {
+ 
             var signalManager = new SignalManager(command, _publishEndpoint);
             switch (command.Command)
             {
@@ -57,7 +59,7 @@ namespace TrafficLightCentralSystem.Controllers
                     break;
                 case ProccessCommand.Stop:
                     // record command in repository
-                    signalManager.Stop();
+
                     break;
                 case ProccessCommand.Reset:
                     // record command in repository

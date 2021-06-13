@@ -7,6 +7,7 @@ EXPOSE 80
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["services/CentralSystem/TrafficLightCentralSystem/TrafficLightCentralSystem.csproj", "services/CentralSystem/TrafficLightCentralSystem/"]
+COPY ["BuildingBlocks/EventBus.Messages/EventBus.Messages.csproj", "BuildingBlocks/EventBus.Messages/"]
 RUN dotnet restore "services/CentralSystem/TrafficLightCentralSystem/TrafficLightCentralSystem.csproj"
 COPY . .
 WORKDIR "/src/services/CentralSystem/TrafficLightCentralSystem"

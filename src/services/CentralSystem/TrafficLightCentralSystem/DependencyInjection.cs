@@ -25,7 +25,7 @@ namespace TrafficLightCentralSystem
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddSingleton<IEventRepository>(new InMemoryEventRepository());           
+            services.AddSingleton<IEventRepository>(new InMemoryEventRepository());
 
             services.AddMassTransit(config =>
             {

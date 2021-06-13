@@ -28,6 +28,7 @@ namespace TrafficLightCentralSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInjection(Configuration);
+
             services.AddControllers()
                 .AddJsonOptions(options =>
              options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EventBus.Messages;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using System;
@@ -33,9 +34,10 @@ namespace TrafficLightCentralSystem.Usecases
             throw new NotImplementedException();
         }
 
-        public void Run()
+        public async void Run()
         {
-
+            var signal = new SignalStateEvent() { Green = true };
+            await _publishEndpoint.Publish<SignalStateEvent>(signal);
         }
 
         public void Stop()
