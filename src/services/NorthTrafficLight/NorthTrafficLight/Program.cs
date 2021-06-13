@@ -17,10 +17,13 @@ namespace NorthTrafficLight
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+          Host.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((ctx, builder) => {
+                  builder.AddEnvironmentVariables();
+              })
+              .ConfigureWebHostDefaults(webBuilder =>
+              {
+                  webBuilder.UseStartup<Startup>();
+              });
     }
 }

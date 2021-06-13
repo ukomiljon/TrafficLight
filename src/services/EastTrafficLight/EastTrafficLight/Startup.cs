@@ -1,4 +1,7 @@
+using AutoMapper;
 using EastTrafficLight.EventBusConsumer;
+using EastTrafficLight.Settings;
+using EventBus.Messages.Constants;
 using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +30,14 @@ namespace EastTrafficLight
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -42,7 +53,7 @@ namespace EastTrafficLight
                 {
                     cfg.Host(Configuration["EventBusSettings:HostAddress"]);
 
-                    cfg.ReceiveEndpoint("signal-queue", c =>
+                    cfg.ReceiveEndpoint(EventBusConstants.SignalEvenQueue, c =>
                     {
                         c.ConfigureConsumer<TrafficLightStateConsumer>(ctx);
                     });
@@ -50,6 +61,7 @@ namespace EastTrafficLight
             });
             services.AddMassTransitHostedService();
             services.AddScoped<TrafficLightStateConsumer>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

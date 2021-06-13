@@ -1,3 +1,6 @@
+using AutoMapper;
+using EventBus.Messages.Constants;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WestTrafficLight.EventBusConsumer;
+using WestTrafficLight.Settings;
 
 namespace WestTrafficLight
 {
@@ -25,6 +30,31 @@ namespace WestTrafficLight
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            // MassTransit-RabbitMQ Configuration
+            services.AddMassTransit(config =>
+            {
+                config.AddConsumer<TrafficLightStateConsumer>();
+
+                config.UsingRabbitMq((ctx, cfg) =>
+                {
+                    cfg.Host(Configuration["EventBusSettings:HostAddress"]);
+
+                    cfg.ReceiveEndpoint(EventBusConstants.SignalEvenQueue, c =>
+                    {
+                        c.ConfigureConsumer<TrafficLightStateConsumer>(ctx);
+                    });
+                });
+            });
+            services.AddMassTransitHostedService();
+            services.AddScoped<TrafficLightStateConsumer>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

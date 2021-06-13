@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj" />
+    <ProjectReferenceProjectReference Include="..\..\..\BuildingBlocks\EventBus.Messages..\..\..\BuildingBlocks\EventBus.Messages\EventBus.Messages.csprojEventBus.Messages.csproj" />
   </ItemGroup>
 
 </Project>

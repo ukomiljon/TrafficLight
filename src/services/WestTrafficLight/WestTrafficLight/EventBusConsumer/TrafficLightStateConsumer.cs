@@ -3,11 +3,10 @@ using MassTransit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
+using System.Threading.Tasks; 
 using AutoMapper;
 
-namespace EastTrafficLight.EventBusConsumer
+namespace WestTrafficLight.EventBusConsumer
 {
     public class TrafficLightStateConsumer : IConsumer<SignalStateEvent>
     {
@@ -21,8 +20,10 @@ namespace EastTrafficLight.EventBusConsumer
 
         public async Task Consume(ConsumeContext<SignalStateEvent> context)
         {
-            //EastTrafficLight
-            Console.WriteLine("EastTrafficLight");
+            //WestTrafficLight
+
+            Console.WriteLine("WestTrafficLight");
+
         }
     }
 }
