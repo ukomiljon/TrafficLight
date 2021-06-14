@@ -23,12 +23,7 @@ namespace ConsoleApp
             var souththConnection = Task.Run(() => { _southTrafficLight.Connect(); });
             var westConnection = Task.Run(() => { _westTrafficLight.Connect(); });
 
-            Task.WaitAll(new[] { eastConnection, souththConnection, westConnection });
-
-            //_eastTrafficLight.Connect();
-            //_westTrafficLight.Connect();
-            //_northTrafficLight.Connect();
-            //_southTrafficLight.Connect();
+            Task.WaitAll(new[] { eastConnection, souththConnection, westConnection }); 
         }
 
        

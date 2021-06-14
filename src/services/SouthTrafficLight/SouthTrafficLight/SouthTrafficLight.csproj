@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\EventBus.Messages\EventBus.Messages.csproj" />
-    <ProjectReference Include="..\..\..\BuildingBlocks\MessageSenderHub\CentralHub.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\MessageSenderHub\SignalRHub.csproj" />
   </ItemGroup>
 
 </Project>

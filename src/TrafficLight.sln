@@ -33,7 +33,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presintation", "Presintatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "Presination\ConsoleApp\ConsoleApp.csproj", "{7E4B62B8-CB47-43B2-957E-98A593475102}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralHub", "BuildingBlocks\MessageSenderHub\CentralHub.csproj", "{8590E322-6520-49AE-8035-51D029DD345E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRHub", "BuildingBlocks\MessageSenderHub\SignalRHub.csproj", "{8590E322-6520-49AE-8035-51D029DD345E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -25,7 +25,7 @@ namespace WestTrafficLight.EventBusConsumer
 
         public async Task Consume(ConsumeContext<SignalStateEvent> context)
         {
-            //EastTrafficLight
+            //WestTrafficLight
             Console.WriteLine("WestTrafficLight");
             await _hub.Clients.All.SendAsync("ReceiveMessage", "WestTrafficLight", "1234");
 
