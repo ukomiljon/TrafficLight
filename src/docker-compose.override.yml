@@ -54,6 +54,19 @@ services:
     ports:
       - "8004:80"
 
+  #consoleapp: 
+  #  depends_on:       
+  #    - easttrafficlight
+    #ports:
+    #  - "8005:80"
+  #consoleapp:
+  #  ports:
+  #    - "8080:80"    
+  #  environment:
+  #    - ASPNETCORE_ENVIRONMENT=Development      
+  #  ports:
+  #    - "8080:80"
+
 
 
 

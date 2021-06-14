@@ -2,6 +2,7 @@
 using EventBus.Messages;
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,7 @@ namespace TrafficLightCentralSystem.Usecases
         public async void Run()
         {
             var signal = new SignalStateEvent() { Green = true };
-            await _publishEndpoint.Publish<SignalStateEvent>(signal);
+            await _publishEndpoint.Publish<SignalStateEvent>(signal); 
         }
 
         public void Stop()

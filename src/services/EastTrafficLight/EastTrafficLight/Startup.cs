@@ -3,6 +3,7 @@ using EastTrafficLight.EventBusConsumer;
 using EastTrafficLight.Settings;
 using EventBus.Messages.Constants;
 using MassTransit;
+using MessageSenderHub;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -53,7 +54,7 @@ namespace EastTrafficLight
                 {
                     cfg.Host(Configuration["EventBusSettings:HostAddress"]);
 
-                    cfg.ReceiveEndpoint(EventBusConstants.SignalEvenQueue, c =>
+                    cfg.ReceiveEndpoint("East", c =>
                     {
                         c.ConfigureConsumer<TrafficLightStateConsumer>(ctx);
                     });
@@ -61,6 +62,9 @@ namespace EastTrafficLight
             });
             services.AddMassTransitHostedService();
             services.AddScoped<TrafficLightStateConsumer>();
+
+            services.AddSignalR();
+            services.AddScoped<CentralHub>();
 
         }
 
@@ -81,7 +85,9 @@ namespace EastTrafficLight
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
+                endpoints.MapHub<CentralHub>("/east");
+            }); 
+           
         }
     }
 }

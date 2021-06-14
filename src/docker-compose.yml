@@ -37,3 +37,10 @@ services:
       context: .
       dockerfile: services/WestTrafficLight/WestTrafficLight/Dockerfile
 
+  consoleapp:
+    image:  consoleapp
+    build:
+      context: .
+      dockerfile: Presination/ConsoleApp/Dockerfile
+ 
+   
