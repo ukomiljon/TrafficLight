@@ -10,6 +10,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.SignalR;
 using RabbitMQ.Client;
 using MessageSenderHub;
+using BundleTransformer.Core.Constants;
 
 namespace EastTrafficLight.EventBusConsumer
 {
@@ -26,9 +27,10 @@ namespace EastTrafficLight.EventBusConsumer
         }
 
         public async Task Consume(ConsumeContext<SignalStateEvent> context)
-        {             
-            Console.WriteLine("EastTrafficLight");
-            await _hub.Clients.All.SendAsync("ReceiveMessage", "EastTrafficLight", "1234");
+        {
+            Console.WriteLine(context.Message.West.ToString());
+            if (context.Message.ProccessCommand == ProccessCommand.None)
+                await _hub.Clients.All.SendAsync("ReceiveMessage", "EastTrafficLight", context.Message.West.ToString());
         }
     }
 }

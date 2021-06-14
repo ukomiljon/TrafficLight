@@ -50,10 +50,11 @@ namespace TrafficLightCentralSystem.Usecases
                while (!_stopProcess)
                {
                    var currentQueue = queueIndex % queueLength;
-
-                   SendMessage(map.CreateMessage(currentQueue));
+                   var currentState = map.CreateMessage(currentQueue);
+                   Console.WriteLine($"North: {currentState.North}, South: {currentState.South}, West:{currentState.West}, East:{currentState.East}");
+                   SendMessage(currentState);
                    map.StayTime(currentQueue);
-
+                  
                    queueIndex++;
                }
            });
@@ -66,11 +67,7 @@ namespace TrafficLightCentralSystem.Usecases
             _stopProcess = true;//stop  
             if (_task != null) _task.Dispose();
         }
-        private SignalStateEvent CreateMessage(int currentQueue)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public async void Stop()
         {
             lock (obj)
@@ -97,6 +94,11 @@ namespace TrafficLightCentralSystem.Usecases
             var nourthQueue = new List<Signal>();
             var westQueue = new List<Signal>();
             var eastQueue = new List<Signal>();
+
+            map[TrafficLightBound.South] = southQueue;
+            map[TrafficLightBound.North] = nourthQueue;
+            map[TrafficLightBound.West] = westQueue;
+            map[TrafficLightBound.East] = eastQueue;
 
             nourthQueue.Add(Signal.Red);
             southQueue.Add(Signal.Red);

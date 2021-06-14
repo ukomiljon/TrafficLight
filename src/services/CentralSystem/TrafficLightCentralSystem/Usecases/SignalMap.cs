@@ -14,7 +14,9 @@ namespace TrafficLightCentralSystem.Usecases
 
         public SignalMap()
         {
-            PickHours = new List<PeakHour>(); 
+            PickHours = new List<PeakHour>();
+            MaxStayTime = new List<int>();
+            MaxStayPickTime = new List<int>();
         }
        
 
@@ -22,11 +24,11 @@ namespace TrafficLightCentralSystem.Usecases
         {
             if (IsPickHours())
             {
-                Thread.Sleep(MaxStayPickTime[queueIndex]);
+                Thread.Sleep(MaxStayPickTime[queueIndex] * 1000);
                 return;
             }
 
-            Thread.Sleep(MaxStayTime[queueIndex]);
+            Thread.Sleep(MaxStayTime[queueIndex]*1000);
         }
 
 
