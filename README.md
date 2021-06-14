@@ -2,7 +2,9 @@
 
 
 ```
-[
+{
+  "intersectionName": "abc",
+  "trafficBounds":[
   {
     "pickHours": [
       {
@@ -28,7 +30,8 @@
       "green": 20,
       "rightTurnGreen": 0
     },
-    "trafficLightBound": "West"
+    "trafficLightBound": "West" 
+     
   },
  {
     "pickHours": [
@@ -55,7 +58,8 @@
       "green": 20,
       "rightTurnGreen": 0
     },
-    "trafficLightBound": "East"
+    "trafficLightBound": "East" 
+     
   },
 {
     "pickHours": [
@@ -82,7 +86,8 @@
       "green": 20,
       "rightTurnGreen": 0
     },
-    "trafficLightBound": "South"
+    "trafficLightBound": "South" 
+     
   },
 {
     "pickHours": [
@@ -109,7 +114,9 @@
       "green": 20,
       "rightTurnGreen": 10
     },
-    "trafficLightBound": "North"
+    "trafficLightBound": "North" 
+    
   }
 ]
+}
 ```
