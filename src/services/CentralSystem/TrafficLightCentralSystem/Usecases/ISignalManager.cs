@@ -9,8 +9,6 @@ namespace TrafficLightCentralSystem.Usecases
     public interface ISignalManager
     {
         public void Run(TrafficLightIntersection trafficLightIntersection, CommandRequest request);
-        public void Stop();
-        public void Reset();
-        public void Error();
+        public void Stop(); 
     }
 }
