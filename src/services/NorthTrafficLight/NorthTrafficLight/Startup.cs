@@ -1,6 +1,6 @@
 using AutoMapper;
-using EventBus.Messages.Constants;
 using MassTransit;
+using MessageSenderHub;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +47,7 @@ namespace NorthTrafficLight
                 {
                     cfg.Host(Configuration["EventBusSettings:HostAddress"]);
 
-                    cfg.ReceiveEndpoint(EventBusConstants.SignalEvenQueue, c =>
+                    cfg.ReceiveEndpoint("North", c =>
                     {
                         c.ConfigureConsumer<TrafficLightStateConsumer>(ctx);
                     });
@@ -55,6 +55,9 @@ namespace NorthTrafficLight
             });
             services.AddMassTransitHostedService();
             services.AddScoped<TrafficLightStateConsumer>();
+
+            services.AddSignalR();
+            services.AddScoped<CentralHub>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -80,6 +83,7 @@ namespace NorthTrafficLight
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CentralHub>("/north");
             });
         }
     }

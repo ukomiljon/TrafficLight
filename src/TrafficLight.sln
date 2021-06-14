@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "Presination\C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalRHub", "BuildingBlocks\MessageSenderHub\SignalRHub.csproj", "{8590E322-6520-49AE-8035-51D029DD345E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthTrafficLight", "services\NorthTrafficLight\NorthTrafficLight\NorthTrafficLight.csproj", "{1D2CD480-0D1C-49B6-8127-CE9B748F7406}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{8590E322-6520-49AE-8035-51D029DD345E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8590E322-6520-49AE-8035-51D029DD345E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8590E322-6520-49AE-8035-51D029DD345E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D2CD480-0D1C-49B6-8127-CE9B748F7406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D2CD480-0D1C-49B6-8127-CE9B748F7406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D2CD480-0D1C-49B6-8127-CE9B748F7406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D2CD480-0D1C-49B6-8127-CE9B748F7406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{2DFACB3B-3C1C-42BB-8003-1F21A64A662D} = {7AEAE123-9C38-4EE0-A1EB-18B967B8C061}
 		{7E4B62B8-CB47-43B2-957E-98A593475102} = {FD0C91E8-DC40-41B4-B60A-9D6475BC3289}
 		{8590E322-6520-49AE-8035-51D029DD345E} = {7AEAE123-9C38-4EE0-A1EB-18B967B8C061}
+		{1D2CD480-0D1C-49B6-8127-CE9B748F7406} = {5EB9C418-143F-40EF-A171-35181964757F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA39F4BD-D8B7-49BD-9B54-ADD3C933B14A}

@@ -18,8 +18,7 @@ namespace EastTrafficLight.EventBusConsumer
 
         private readonly IMapper _mapper;
         private readonly   IHubContext<CentralHub> _hub;
-        private readonly ConnectionFactory _connectionFactory;
-
+       
         public TrafficLightStateConsumer(IMapper mapper, IHubContext<CentralHub> hub)
         {           
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
