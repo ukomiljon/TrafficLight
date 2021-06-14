@@ -36,6 +36,7 @@ namespace TrafficLightCentralSystem
                 });
             });
             services.AddMassTransitHostedService();
+            services.AddSingleton<IEventRepository>(new InMemoryEventRepository());
         }
     }
 }

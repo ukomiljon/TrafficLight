@@ -1,12 +1,24 @@
 ﻿using System;
+ 
 
 namespace EventBus.Messages
-{     
-    public class SignalStateEvent  
+{
+    public enum Signal { Red, Yellow, Green, GreenAndRightArrowGreen, OnlyRightArrowGreen }
+    public enum ProccessCommand { None, Run, Stop }
+    public class SignalStateEvent
     {
-        public bool Red { get; set; }
-        public bool Yellow { get; set; }
-        public bool Green { get; set; }
-        public bool RightTurnGreen { get; set; }
+        public SignalStateEvent()
+        {
+            ProccessCommand = ProccessCommand.None;
+        }
+        public Signal North { get; set; }
+        public Signal South { get; set; }
+        public Signal West { get; set; }
+        public Signal East { get; set; }
+       
+        public ProccessCommand ProccessCommand { get; set; }
     }
+
+   
+   
 }

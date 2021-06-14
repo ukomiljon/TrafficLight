@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace TrafficLightCentralSystem.Model.DTO
 {
-    public enum ProccessCommand { Run, Stop, Reset }
+    public enum ProccessCommandRequest { Run, Stop, Reset }
     public class CommandRequest
     {
         [Required]
-        [EnumDataType(typeof(ProccessCommand))]
+        [EnumDataType(typeof(ProccessCommandRequest))]
         [JsonConverter(typeof(StringEnumConverter))]
-        public ProccessCommand Command { get; set; }
+        public ProccessCommandRequest Command { get; set; }
     }
 }

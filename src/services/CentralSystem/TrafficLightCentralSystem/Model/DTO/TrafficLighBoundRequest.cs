@@ -11,9 +11,21 @@ using System.Threading.Tasks;
 namespace TrafficLightCentralSystem.Model.DTO
 {
     public enum TrafficLightBound { West, East, North, South }
+    //public enum Signal { Red, Yellow, Green, GreenAndRightArrowGreen, OnlyRightArrowGreen }
+
+
+    public class TrafficLightIntersection  
+    {
+        [Required]
+        public string IntersectionName { get; set; }
+
+        [Required]
+        public List<TrafficLighBoundRequest> TrafficBounds { get; set; }
+    }
+
     public class TrafficLighBoundRequest
     {       
-        public IEnumerable<PickHour> PickHours { get; set; }
+        public List<PickHour> PickHours { get; set; }
 
         [Required]
         public NormalHour NormalHour { get; set; }
@@ -21,7 +33,7 @@ namespace TrafficLightCentralSystem.Model.DTO
         [Required]
         [EnumDataType(typeof(TrafficLightBound))]
         [JsonConverter(typeof(StringEnumConverter))]
-        public TrafficLightBound TrafficLightBound { get; set; }
+        public TrafficLightBound TrafficLightBound { get; set; } 
     }
 
     public class PickHour : SignalStayTimeRequest

@@ -22,6 +22,7 @@ namespace TrafficLightCentralSystem.Controllers
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
         private readonly IPublishEndpoint _publishEndpoint;
+        private readonly SignalManager _signalManager;
 
         public CentralSystemController(
             ILogger<CentralSystemController> logger,
@@ -33,40 +34,52 @@ namespace TrafficLightCentralSystem.Controllers
             _eventRepository = eventRepository;
             _mapper = mapper;
             _publishEndpoint = publishEndpoint;
+
+            _signalManager = new SignalManager(_publishEndpoint);
         }
 
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]       
-        public async Task<ActionResult> Post(IEnumerable<TrafficLighBoundRequest> initSetting)
+        public async Task<ActionResult> Post(TrafficLightIntersection initSetting)
         {
-           
+            await _eventRepository.Create(initSetting);
             return Ok();
         }
 
-        [HttpPost("commands")]
+        [HttpGet("{intersectionName}")]
+        public async Task<ActionResult<TrafficLightIntersection>> Get(string intersectionName)
+        {            
+            return Ok(await _eventRepository.Get(intersectionName));
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<TrafficLightIntersection>> GetAll()
+        {
+            return Ok(_eventRepository.GetAll());
+        }
+
+        [HttpPost("commands/{intersectionName}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status304NotModified)]
-        public async Task<ActionResult> Post(CommandRequest command)
+        public async Task<ActionResult> Post(string intersectionName, CommandRequest command)
         {
- 
-            var signalManager = new SignalManager(command, _publishEndpoint);
+            var trafficLightIntersection = await _eventRepository.Get(intersectionName);
+
             switch (command.Command)
             {
-                case ProccessCommand.Run:
-                    // record command in repository
-                    signalManager.Run();
+                case ProccessCommandRequest.Run:
+                    _signalManager.Stop();// stop any if running
+                    _signalManager.Run(trafficLightIntersection, command);
                     break;
-                case ProccessCommand.Stop:
-                    // record command in repository
-
+                case ProccessCommandRequest.Stop:
+                    _signalManager.Stop();// stop any if running
                     break;
-                case ProccessCommand.Reset:
-                    // record command in repository
-                    signalManager.Reset();
+                case ProccessCommandRequest.Reset:
+                    _signalManager.Stop();// stop any if running
+                    _signalManager.Run(trafficLightIntersection, command);
                     break;
                 default:
-                    // record command in repository
                     _logger.LogError($"There is no {command.Command}");
                     break;
             }
