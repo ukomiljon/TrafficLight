@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
- 
+
 namespace ConsoleApp
 {
     public class ServerConnector
@@ -32,8 +32,6 @@ namespace ConsoleApp
             Console.ReadKey();
         }
 
-        private static  Timer timer = new  Timer(); 
+        private static Timer timer = new Timer();
     }
-
-
 }
