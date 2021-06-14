@@ -4,7 +4,7 @@ Real time Asp.Net core microservices with SignalR and single messages to send to
 ![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
 
 
-##json payload for initial traffic light bounds
+## json payload for initial traffic light bounds
 ```
 {
   "intersectionName": "abc",
