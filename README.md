@@ -39,6 +39,7 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 4.	There’s no need to implement entity framework (or similar) to store the data in a database, a in-memory store is fine
 5.	Code needs to follow architecture & best practices for enterprise grade systems
 
+# Architecture
 ![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
 
 Result:
