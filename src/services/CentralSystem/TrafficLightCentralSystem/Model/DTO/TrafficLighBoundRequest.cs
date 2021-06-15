@@ -1,20 +1,15 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
- 
-using System.Threading.Tasks;
 
 namespace TrafficLightCentralSystem.Model.DTO
 {
     public enum TrafficLightBound { West, East, North, South }
-    //public enum Signal { Red, Yellow, Green, GreenAndRightArrowGreen, OnlyRightArrowGreen }
 
 
-    public class TrafficLightIntersection  
+    public class TrafficLightIntersection
     {
         [Required]
         public string IntersectionName { get; set; }
@@ -24,7 +19,7 @@ namespace TrafficLightCentralSystem.Model.DTO
     }
 
     public class TrafficLighBoundRequest
-    {       
+    {
         public List<PickHour> PickHours { get; set; }
 
         [Required]
@@ -33,7 +28,7 @@ namespace TrafficLightCentralSystem.Model.DTO
         [Required]
         [EnumDataType(typeof(TrafficLightBound))]
         [JsonConverter(typeof(StringEnumConverter))]
-        public TrafficLightBound TrafficLightBound { get; set; } 
+        public TrafficLightBound TrafficLightBound { get; set; }
     }
 
     public class PickHour : SignalStayTimeRequest

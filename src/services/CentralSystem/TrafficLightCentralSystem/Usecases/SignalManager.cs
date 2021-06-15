@@ -1,10 +1,6 @@
-﻿using AutoMapper;
-using EventBus.Messages;
+﻿using EventBus.Messages;
 using MassTransit;
-using Microsoft.Extensions.Logging;
-using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TrafficLightCentralSystem.Model.DTO;
@@ -32,7 +28,7 @@ namespace TrafficLightCentralSystem.Usecases
 
             _stopProcess = false;
 
-            var map = new QueueBuilder(trafficLightIntersection).Build();
+            var map = new QueueBuilderV1(trafficLightIntersection).Build();
             var queueLength = map.ElementAt(0).Value.Count;
 
             _task = Task.Run(() =>

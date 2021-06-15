@@ -1,5 +1,4 @@
-﻿using System;
- 
+﻿
 
 namespace EventBus.Messages
 {
@@ -15,10 +14,10 @@ namespace EventBus.Messages
         public Signal South { get; set; }
         public Signal West { get; set; }
         public Signal East { get; set; }
-       
+
         public ProccessCommand ProccessCommand { get; set; }
     }
 
-   
-   
+
+
 }

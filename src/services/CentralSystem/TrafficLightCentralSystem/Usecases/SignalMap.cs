@@ -18,7 +18,7 @@ namespace TrafficLightCentralSystem.Usecases
             MaxStayTime = new List<int>();
             MaxStayPickTime = new List<int>();
         }
-       
+
 
         public void StayTime(int queueIndex)
         {
@@ -28,7 +28,7 @@ namespace TrafficLightCentralSystem.Usecases
                 return;
             }
 
-            Thread.Sleep(MaxStayTime[queueIndex]*1000);
+            Thread.Sleep(MaxStayTime[queueIndex] * 1000);
         }
 
 

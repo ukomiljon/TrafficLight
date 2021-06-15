@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
     public class ServerConnector
-    {        
+    {
         private string _connectionUrl;
 
         public ServerConnector(string connectionUrl)
@@ -16,7 +12,7 @@ namespace ConsoleApp
             _connectionUrl = connectionUrl;
         }
         public void Connect()
-        {          
+        {
             var connection = new HubConnectionBuilder()
                 .WithUrl(_connectionUrl)
                 .Build();

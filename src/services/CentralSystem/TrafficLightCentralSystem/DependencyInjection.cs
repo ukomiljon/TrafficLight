@@ -1,15 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using TrafficLightCentralSystem.Repositories;
-using TrafficLightCentralSystem.Settings;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
-using TrafficLightCentralSystem.Usecases;
+using Microsoft.Extensions.DependencyInjection;
+using TrafficLightCentralSystem.Repositories;
+using TrafficLightCentralSystem.Settings;
 
 namespace TrafficLightCentralSystem
 {

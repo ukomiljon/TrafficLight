@@ -1,29 +1,20 @@
-﻿using EventBus.Messages;
+﻿using AutoMapper;
+using EventBus.Messages;
 using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using MediatR;
-using AutoMapper;
- 
-using Microsoft.AspNetCore.SignalR;
-using RabbitMQ.Client;
 using MessageSenderHub;
-using BundleTransformer.Core.Constants;
+using Microsoft.AspNetCore.SignalR;
+using System;
+using System.Threading.Tasks;
 
 namespace EastTrafficLight.EventBusConsumer
 {
     public class TrafficLightStateConsumer : IConsumer<SignalStateEvent>
     {
+        private readonly IHubContext<CentralHub> _hub;
 
-        private readonly IMapper _mapper;
-        private readonly   IHubContext<CentralHub> _hub;
-       
-        public TrafficLightStateConsumer(IMapper mapper, IHubContext<CentralHub> hub)
-        {           
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
-            _hub = hub ?? throw new ArgumentNullException(nameof(hub)); 
+        public TrafficLightStateConsumer(IHubContext<CentralHub> hub)
+        {
+            _hub = hub ?? throw new ArgumentNullException(nameof(hub));
         }
 
         public async Task Consume(ConsumeContext<SignalStateEvent> context)

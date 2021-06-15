@@ -1,13 +1,11 @@
 ﻿using EventBus.Messages;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using TrafficLightCentralSystem.Model.DTO;
 
 namespace TrafficLightCentralSystem.Usecases.Rules
 {
-    public class QueueBuilder
+    public class QueueBuilderV1
     {
         private TrafficLightIntersection _trafficLightIntersection;
         private TrafficLighBoundRequest _south;
@@ -15,7 +13,7 @@ namespace TrafficLightCentralSystem.Usecases.Rules
         private TrafficLighBoundRequest _west;
         private TrafficLighBoundRequest _east;
         private SignalMap _map;
-        public QueueBuilder(TrafficLightIntersection trafficLightIntersection)
+        public QueueBuilderV1(TrafficLightIntersection trafficLightIntersection)
         {
             _trafficLightIntersection = trafficLightIntersection;
             _south = trafficLightIntersection.TrafficBounds.Find(_ => _.TrafficLightBound == TrafficLightBound.South);

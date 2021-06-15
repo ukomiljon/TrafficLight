@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
-using EventBus.Messages;
 using MassTransit;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using TrafficLightCentralSystem.Model.DTO;
 using TrafficLightCentralSystem.Repositories;
@@ -40,7 +37,7 @@ namespace TrafficLightCentralSystem.Controllers
 
 
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status200OK)]       
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult> Post(TrafficLightIntersection initSetting)
         {
             await _eventRepository.Create(initSetting);
@@ -49,7 +46,7 @@ namespace TrafficLightCentralSystem.Controllers
 
         [HttpGet("{intersectionName}")]
         public async Task<ActionResult<TrafficLightIntersection>> Get(string intersectionName)
-        {            
+        {
             return Ok(await _eventRepository.Get(intersectionName));
         }
 

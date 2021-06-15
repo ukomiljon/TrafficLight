@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR.Client;
-using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace ConsoleApp
 {
@@ -13,10 +11,10 @@ namespace ConsoleApp
 
         static void Main(string[] args)
         {
-            _eastTrafficLight = new ServerConnector("http://localhost:5001/east"); 
+            _eastTrafficLight = new ServerConnector("http://localhost:5001/east");
             _westTrafficLight = new ServerConnector("http://localhost:5002/west");
             _northTrafficLight = new ServerConnector("http://localhost:5009/north");
-            _southTrafficLight = new ServerConnector("http://localhost:56625/south");
+            _southTrafficLight = new ServerConnector("http://localhost:5004/south");
 
             var eastConnection = Task.Run(() => { _eastTrafficLight.Connect(); });
             var northConnection = Task.Run(() => { _northTrafficLight.Connect(); });

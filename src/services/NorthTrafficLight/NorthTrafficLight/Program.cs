@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace NorthTrafficLight
 {
@@ -18,7 +13,8 @@ namespace NorthTrafficLight
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
           Host.CreateDefaultBuilder(args)
-              .ConfigureAppConfiguration((ctx, builder) => {
+              .ConfigureAppConfiguration((ctx, builder) =>
+              {
                   builder.AddEnvironmentVariables();
               })
               .ConfigureWebHostDefaults(webBuilder =>

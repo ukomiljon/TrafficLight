@@ -6,6 +6,6 @@ namespace TrafficLightCentralSystem.Usecases
     {
         public TimeSpan Start { get; set; }
         public TimeSpan End { get; set; }
-        public int  StayTime { get; set; }
+        public int StayTime { get; set; }
     }
 }
