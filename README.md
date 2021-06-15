@@ -42,10 +42,10 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 # Architecture
 ![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
 
-# Result:
+## Result:
 ![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
 
-# Traffic Light Central System to manage whole traffic light and other microservices signal state.
+## Traffic Light Central System to manage whole traffic light and other microservices signal state.
 ![image](https://user-images.githubusercontent.com/16934572/121990646-ae886c80-cdd0-11eb-9d0f-b52b570039b5.png)
 
 
