@@ -43,10 +43,10 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 ![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
 
 Result:
-![image](https://user-images.githubusercontent.com/16934572/121987787-c14c7280-cdcb-11eb-8024-b692c02cff61.png)
+![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
 
 
-## json payload for initial traffic light bounds
+## Json payload for initial traffic light bounds
 ```
 {
   "intersectionName": "abc",
