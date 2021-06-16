@@ -34,7 +34,7 @@ For example:
 But in order simplify initial value, all traffic lights are initially in red signal.
 Then the sequences look like this
 
-                   South North West East
+      I.          South North West East
                     R     R    R    R
                     G     G    R    R
                     Y     Y    R    R
@@ -44,7 +44,7 @@ Then the sequences look like this
 
 If there is extra Right Green Arrow (RGA) signal in north traffic light bound: 
 
-                  South North West East
+      II.         South North West East
                     R     R    R    R
                     R    RGA   R    R
                     G     G    R    R
@@ -61,7 +61,7 @@ If there is extra Right Green Arrow (RGA) signal in north traffic light bound:
             - South, North bound have Left Green Arrow (LGA)
             - West, East bound have Left Green Arrow (LGA)
             
-                  South North West East
+       III.       South North West East
                     R     R    R    R
                     R     R    G    G
                     R     R    Y    Y
@@ -75,6 +75,8 @@ If there is extra Right Green Arrow (RGA) signal in north traffic light bound:
                     Y     Y    R    R
                     R     R    R    R
                     R    RGA  LGA  LGA
+
+I will solve here for I and II. But it can be easily solved III as well with existing solution.
 
 ### Brief documentation:
  
