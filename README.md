@@ -30,8 +30,24 @@ For example:
 But in order simplify initial value, all traffic lights are initially in red signal.
 Then the sequences look like this
 
-      South/North: R, G, Y, R, R, R
-      West/East:   R, R, R, R, G, Y
+       South North West East
+        R     R    R    R
+        G     G    R    R
+        Y     Y    R    R
+        R     R    R    R
+        R     R    G    G
+        R     R    Y    Y
+
+If there is extra Right Grean Arrow (RGA) signal in north traffic light bound: 
+
+      South North West East
+        R     R    R    R
+        R    RGA   R    R
+        G     G    R    R
+        Y     Y    R    R
+        R     R    R    R
+        R     R    G    G
+        R     R    Y    Y
 
 ### Brief documentation:
  
