@@ -41,7 +41,7 @@ Note: it is pre required .net core frame work and docker desktop for windows.
 
 ![image](https://user-images.githubusercontent.com/16934572/122229109-0ca97280-ceeb-11eb-8af0-9b77c6f12473.png)
 
-7. You can see all microservices east, west, north, south start to recieve state of signals from traffic light central system api, and send each its own signal to the cliens app console. Traffic Light Central System Console displays also state of signals where generates and send to west, east, north and south traffic light microservices.
+7. You can see all microservices east, west, north, south start to recieve state of signals from traffic light central system api, and send each its own signal to the cliens app console. Traffic Light Central System Console displays state of signals where generates and sends to west, east, north and south traffic light microservices.
 
  ![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
 8. it can be stoped by execute stop commands in Traffic Light Central System swagger api
