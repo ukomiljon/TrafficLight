@@ -29,7 +29,7 @@ namespace TrafficLightCentralSystem.Usecases.Rules
         }
 
         public SignalMap Build()
-        {
+        {                 //   S  N  W  E
             BuildQueue1();//1. R, R, R, R
             BuildQueue2();//2,3. R, GRightArrow, R, R | G, G, R, R
             BuildQueue3();//4. Y, Y, R, R
