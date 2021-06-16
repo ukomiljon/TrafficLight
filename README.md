@@ -9,6 +9,7 @@ West/East:   R, R, R, G, Y, R
    
 But in order simplify initial value we start here with Red color for all Traffic Lights.
 So, all traffic lights are initially in red signal.
+ 
 
 # Brief documentation:
  
@@ -49,7 +50,7 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 ![image](https://user-images.githubusercontent.com/16934572/121990646-ae886c80-cdd0-11eb-9d0f-b52b570039b5.png)
 
 
-## Json payload for initial traffic light bounds
+## Example of json payload for initial traffic light bounds
 ```
 {
   "intersectionName": "abc",
