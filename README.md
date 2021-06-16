@@ -84,7 +84,7 @@ I will solve here for I and II. But it can be easily solved III as well with exi
 2. East, West, North, South traffic lights microservices. They are consumer messages from the Traffic Light Central System to receive the state of signal and send about its signal to a client (user view). It is used SignalR to send about the state to clients.
 3. Console App as a receiver state of signal from East, West, North, South traffic lights microservices and displays results to clients.
 4. There are EventBus.Messages as a message type to understand microservices when send/receive a message (about state signal) and SignalRHub is similar RPC for  East, West, North, South traffic lights microservices to send message to the client using SignalR.
-5. There is QueueBuilderV1 in Traffic Light Central System microservice use-case/Rules to build sequences of signals based on https://www.youtube.com/watch?v=eZ33_lEjgxo. However, the sequences can be a varied version of builders based on required statements. 
+5. There is QueueBuilderV1 in Traffic Light Central System microservice use-case/Rules to build sequences of signals based on I and II. However, the sequences can be a varied version of builders based on required statements. 
  
 ### Easy steps.
 
