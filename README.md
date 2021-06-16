@@ -18,7 +18,35 @@ But in order simplify initial value, all traffic lights are initially in red sig
 4. There are EventBus.Messages as a message type to understand microservices when send/receive a message (about state signal) and SignalRHub is similar RPC for  East, West, North, South traffic lights microservices to send message to the client using SignalR.
 5. There is QueueBuilderV1 in Traffic Light Central System microservice use-case/Rules to build sequences of signals based on https://www.youtube.com/watch?v=eZ33_lEjgxo. However, the sequences can be a varied version of builders based on required statements. 
  
+### Easy steps.
 
+Note: it is pre required .net core frame work and docker desktop for windows.
+
+1. git clone 
+2. open in visual studio run  ```docker-compose up -d``` 
+3. run without debug. you can see console applications for microservices and client app, and swagger apis on browser
+   1. Traffic Light Central System swagger api. http://localhost:5000/swagger/index.html
+   2. East Traffic Light api.  http://localhost:5001/swagger/index.html
+   3. West Traffic Light api. http://localhost:5002/swagger/index.html
+   4. North Traffic Light api. http://localhost:5009/swagger/index.html
+   5. South Traffic Light api. http://localhost:5004/swagger/index.html
+4. You can see on Client Consol App where ready to recieve message from 4 microservices.
+   ![image](https://user-images.githubusercontent.com/16934572/122229376-411d2e80-ceeb-11eb-8e92-b98a25cdf73f.png)
+
+5. Copy from bellow an example of json payload of traffic lights settings and paste and post it to Traffic Ligth Central System swagger api
+
+![image](https://user-images.githubusercontent.com/16934572/122228697-afadbc80-ceea-11eb-8ade-1120ee054332.png)
+
+6. After creating initial settings of traffic lights execute run commands using Traffic Ligth Central System swagger api
+
+![image](https://user-images.githubusercontent.com/16934572/122229109-0ca97280-ceeb-11eb-8af0-9b77c6f12473.png)
+
+7. You can see all microservices east, west, north, south start to recieve state of signals from traffic light central system api, and send each its own signal to the cliens app console.
+
+ ![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
+8. it can be stoped by execute stop commands in Traffic Light Central System swagger api
+![image](https://user-images.githubusercontent.com/16934572/122230716-79713c80-ceec-11eb-8e6d-6b1eb42aefdd.png)
+9. it can be created other intersections traffic lights to create and manage (run, stop) with  Traffic Light Central System swagger api
 
 # Definition:
 
@@ -42,8 +70,7 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 # Architecture
 ![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
 
-## Result:
-![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
+ 
 
 ## Traffic Light Central System to manage whole traffic light and other microservices signal state.
 ![image](https://user-images.githubusercontent.com/16934572/121990646-ae886c80-cdd0-11eb-9d0f-b52b570039b5.png)
