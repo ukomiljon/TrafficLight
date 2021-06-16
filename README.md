@@ -20,11 +20,11 @@ But in order simplify initial value, all traffic lights are initially in red sig
  
 ### Easy steps.
 
-Note: it is pre required .net core frame work and docker desktop for windows.
+Note: it is pre required .net core frame work and docker desktop and visual studio 2019.
 
 1. git clone 
 2. open in visual studio run  ```docker-compose up -d``` 
-3. run without debug. you can see console applications for microservices and client app, and swagger apis on browser
+3. run without debug on visual studio. you can see console applications for microservices and client app, and swagger apis on browser
    1. Traffic Light Central System swagger api. http://localhost:5000/swagger/index.html
    2. East Traffic Light api.  http://localhost:5001/swagger/index.html
    3. West Traffic Light api. http://localhost:5002/swagger/index.html
