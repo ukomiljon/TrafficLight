@@ -25,7 +25,9 @@ It uses this sequence of traffic lights. https://www.youtube.com/watch?v=eZ33_lE
 
 For example:
       South/North: G, Y, R, R, R, R
-      West/East:   R, R, R, G, Y, R
+      West/East:   R, R, R, G, Y, R  
+      
+      R- Red signal, G- Grean signal, Y - Yellow signal
    
 But in order simplify initial value, all traffic lights are initially in red signal.
 Then the sequences look like this
@@ -38,7 +40,7 @@ Then the sequences look like this
                     R     R    G    G
                     R     R    Y    Y
 
-If there is extra Right Grean Arrow (RGA) signal in north traffic light bound: 
+If there is extra Right Green Arrow (RGA) signal in north traffic light bound: 
 
                   South North West East
                     R     R    R    R
