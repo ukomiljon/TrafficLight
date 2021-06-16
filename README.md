@@ -48,6 +48,27 @@ If there is extra Right Grean Arrow (RGA) signal in north traffic light bound:
         R     R    R    R
         R     R    G    G
         R     R    Y    Y
+  
+ Full sequences is for this https://www.youtube.com/watch?v=eZ33_lEjgxo
+ where is included 
+            - North, East Bound have Right Green Arrow (RGA)
+            - South, North bound have Left Green Arrow (LGA)
+            - West, East bound have Left Green Arrow (LGA)
+            
+                  South North West East
+                    R     R    R    R
+                    R     R    G    G
+                    R     R    Y    Y
+                    R     R    R    R                    
+                   LGA   LGA   R   RGA
+                    R     R    R    R
+                    G     G    R    R
+                    Y     Y    R    R
+                    R     R    R    R
+                    G     G    R    R
+                    Y     Y    R    R
+                    R     R    R    R
+                    R    RGA  LGA  LGA
 
 ### Brief documentation:
  
