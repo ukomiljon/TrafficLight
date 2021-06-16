@@ -20,7 +20,10 @@ But in order simplify initial value, all traffic lights are initially in red sig
  
 ### Easy steps.
 
-Note: it is pre required .net core frame work and docker desktop and visual studio 2019.
+Note: it is pre required 
+- .net core framework
+- docker desktop
+- visual studio 2019.
 
 1. git clone 
 2. open in visual studio run  ```docker-compose up -d``` 
