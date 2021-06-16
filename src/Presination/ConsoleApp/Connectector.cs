@@ -15,6 +15,7 @@ namespace ConsoleApp
         {
             var connection = new HubConnectionBuilder()
                 .WithUrl(_connectionUrl)
+                .WithAutomaticReconnect()
                 .Build();
 
             connection.StartAsync().Wait();
