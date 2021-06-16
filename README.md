@@ -24,10 +24,12 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 It uses this sequence of traffic lights. https://www.youtube.com/watch?v=eZ33_lEjgxo
 
 For example:
-      South/North: G, Y, R, R, R, R
+      
+      South/North: G, Y, R, R, R, R      
       West/East:   R, R, R, G, Y, R  
       
       R- Red signal, G- Grean signal, Y - Yellow signal
+      
    
 But in order simplify initial value, all traffic lights are initially in red signal.
 Then the sequences look like this
