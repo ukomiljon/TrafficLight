@@ -1,4 +1,4 @@
-# TrafficLight
+# Traffic Light Sytem
 Real time Asp.Net core microservices with SignalR and single messages to send to multiple consumers with RabbitMQ message broker.
 
 It uses this sequence of traffic lights. https://www.youtube.com/watch?v=eZ33_lEjgxo
