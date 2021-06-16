@@ -1,4 +1,4 @@
-# TrafficLight
+# Traffic Light Sytem
 Real time Asp.Net core microservices with SignalR and single messages to send to multiple consumers with RabbitMQ message broker.
 
 It uses this sequence of traffic lights. https://www.youtube.com/watch?v=eZ33_lEjgxo
@@ -6,11 +6,11 @@ It uses this sequence of traffic lights. https://www.youtube.com/watch?v=eZ33_lE
 For example:
 South/North: G, Y, R, R, R, R
 West/East:   R, R, R, G, Y, R
+   
+But in order simplify initial value, all traffic lights are initially in red signal.
+ 
 
-
-The first 2 sequences might be 1 second different, if the unit test fails it needs to run again.  
-
-# Brief documentation:
+### Brief documentation:
  
 1. Traffic Light Central System microservice - It can be managed by traffic admin, to set initial states, signal stay time for normal, and pick hours. And it sends a message to Message Broker (RabbitMQ) as a producer message.
 2. East, West, North, South traffic lights microservices. They are consumer messages from the Traffic Light Central System to receive the state of signal and send about its signal to a client (user view). It is used SignalR to send about the state to clients.
@@ -18,9 +18,40 @@ The first 2 sequences might be 1 second different, if the unit test fails it nee
 4. There are EventBus.Messages as a message type to understand microservices when send/receive a message (about state signal) and SignalRHub is similar RPC for  East, West, North, South traffic lights microservices to send message to the client using SignalR.
 5. There is QueueBuilderV1 in Traffic Light Central System microservice use-case/Rules to build sequences of signals based on https://www.youtube.com/watch?v=eZ33_lEjgxo. However, the sequences can be a varied version of builders based on required statements. 
  
+### Easy steps.
 
+Note: it is pre required 
+- .net core framework
+- docker desktop
+- visual studio 2019.
 
-# Definition:
+1. git clone 
+2. open in visual studio run  ```docker-compose up -d``` 
+3. run without debug on visual studio. you can see console applications for microservices and client app, and swagger apis on browser
+   1. Traffic Light Central System swagger api. http://localhost:5000/swagger/index.html
+   2. East Traffic Light api.  http://localhost:5001/swagger/index.html
+   3. West Traffic Light api. http://localhost:5002/swagger/index.html
+   4. North Traffic Light api. http://localhost:5009/swagger/index.html
+   5. South Traffic Light api. http://localhost:5004/swagger/index.html
+4. You can see on Client Consol App where ready to recieve message from 4 microservices.
+   ![image](https://user-images.githubusercontent.com/16934572/122229376-411d2e80-ceeb-11eb-8e92-b98a25cdf73f.png)
+
+5. Copy from bellow of this readme an example of json payload of traffic lights settings and paste and post it to Traffic Ligth Central System swagger api
+
+![image](https://user-images.githubusercontent.com/16934572/122228697-afadbc80-ceea-11eb-8ade-1120ee054332.png)
+
+6. After creating initial settings of traffic lights execute run commands using Traffic Ligth Central System swagger api
+
+![image](https://user-images.githubusercontent.com/16934572/122229109-0ca97280-ceeb-11eb-8af0-9b77c6f12473.png)
+
+7. You can see all microservices east, west, north, south start to recieve state of signals from traffic light central system api, and send each its own signal to the cliens app console. Traffic Light Central System Console displays state of signals where generates and sends to west, east, north and south traffic light microservices.
+
+ ![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
+8. it can be stoped by execute stop commands in Traffic Light Central System swagger api
+![image](https://user-images.githubusercontent.com/16934572/122230716-79713c80-ceec-11eb-8e6d-6b1eb42aefdd.png)
+9. it can be created other intersections traffic lights to create and manage (run, stop) with  Traffic Light Central System swagger api
+
+### Definition:
 
 It is required to implement a traffic light system with 4 sets of lights, as follows. <br /><br />
 Lights 1: Traffic is travelling south <br />
@@ -31,7 +62,7 @@ The lights in which traffic is travelling on the same axis can be green at the s
 
 Advanced: At this intersection north bound traffic has a green right-turn signal, which stops the south bound traffic and allows north bound traffic to turn right. This is green at the end of north/south green light and stays green for 10 seconds. During this time north bound is green, north right-turn is green and all other lights are red. 
 
-# Implementation/Outcomes:
+### Implementation/Outcomes:
 
 1.	Implement a front-end and backend 
 2.	The backend will contain the logic and state of the running traffic lights. The front-end will be a visual representation of the traffic lights, with the data served from the backend. 
@@ -39,17 +70,16 @@ Advanced: At this intersection north bound traffic has a green right-turn signal
 4.	There’s no need to implement entity framework (or similar) to store the data in a database, a in-memory store is fine
 5.	Code needs to follow architecture & best practices for enterprise grade systems
 
-# Architecture
+### Architecture
 ![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
 
-## Result:
-![image](https://user-images.githubusercontent.com/16934572/121990323-2ace8000-cdd0-11eb-9c0f-822078c1499b.png)
+ 
 
-## Traffic Light Central System to manage whole traffic light and other microservices signal state.
+### Traffic Light Central System to manage whole traffic light and other microservices signal state.
 ![image](https://user-images.githubusercontent.com/16934572/121990646-ae886c80-cdd0-11eb-9d0f-b52b570039b5.png)
 
 
-## Json payload for initial traffic light bounds
+### Example of json payload for initial traffic light bounds
 ```
 {
   "intersectionName": "abc",
