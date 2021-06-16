@@ -7,8 +7,7 @@ For example:
 South/North: G, Y, R, R, R, R
 West/East:   R, R, R, G, Y, R
    
-But in order simplify initial value we start here with Red color for all Traffic Lights.
-So, all traffic lights are initially in red signal.
+But in order simplify initial value, all traffic lights are initially in red signal.
  
 
 # Brief documentation:
