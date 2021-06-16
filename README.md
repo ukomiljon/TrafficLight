@@ -6,9 +6,9 @@ It uses this sequence of traffic lights. https://www.youtube.com/watch?v=eZ33_lE
 For example:
 South/North: G, Y, R, R, R, R
 West/East:   R, R, R, G, Y, R
-
-
-The first 2 sequences might be 1 second different, if the unit test fails it needs to run again.  
+   
+But in order simplify initial value we start here with Red color for all Traffic Lights.
+So, all traffic lights are initially in red signal.
 
 # Brief documentation:
  
