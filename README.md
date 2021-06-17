@@ -85,7 +85,10 @@ I will solve here for I and II. But it can be easily solved III as well with exi
 3. Console App as a receiver state of signal from East, West, North, South traffic lights microservices and displays results to clients.
 4. There are EventBus.Messages as a message type to understand microservices when send/receive a message (about state signal) and SignalRHub is similar RPC for  East, West, North, South traffic lights microservices to send message to the client using SignalR.
 5. There is QueueBuilderV1 in Traffic Light Central System microservice use-case/Rules to build sequences of signals based on I and II. However, the sequences can be a varied version of builders based on required statements. 
- 
+
+### Architecture
+![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
+
 ### Easy steps.
 
 Note: it is pre required 
@@ -123,11 +126,6 @@ Note: it is pre required
 
 9. it can be created other intersections traffic lights to create and manage (run, stop) with  Traffic Light Central System swagger api
 
-
-### Architecture
-![Traffic Light System-Page-2 (4)](https://user-images.githubusercontent.com/16934572/121951886-15d0fd00-cd8e-11eb-8b3e-03080f5991f3.png)
-
- 
 
 ### Traffic Light Central System to manage whole traffic light and other microservices signal state.
 ![image](https://user-images.githubusercontent.com/16934572/121990646-ae886c80-cdd0-11eb-9d0f-b52b570039b5.png)
