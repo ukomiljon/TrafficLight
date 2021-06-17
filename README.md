@@ -55,7 +55,7 @@ If there is extra Right Green Arrow (RGA) signal in north traffic light bound:
   
  Complete sequences can be for this https://www.youtube.com/watch?v=eZ33_lEjgxo
  
- Note. The requirements is different here than the given requirements.
+ Note. The requirements is different here from the given requirements.
   
             - North, East Bound have Right Green Arrow (RGA)
             - South, North bound have Left Green Arrow (LGA)
